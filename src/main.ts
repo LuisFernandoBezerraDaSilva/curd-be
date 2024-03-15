@@ -3,7 +3,7 @@ import express from "express";
 import controllers from "./controllers";
 import cors from "cors";
 import fs from "fs";
-import jobs from "./jobs/index";
+import jobs from "./jobs";
 // import { hash } from './helpers/crypto';
 
 const argExecJobs = "--just-execute-the-jobs";
@@ -27,7 +27,8 @@ if (executeJobs) {
       methods: "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
     }),
   );
-  
+
+  // Application middlewares
   controllers.forEach((c) => c(server));
 
   // Start
