@@ -43,4 +43,17 @@ export default (app: Express) => {
         .end();
     }
   });
+
+  app.delete("/category/:categoryId", async (req: Request, res: Response) => {
+    try {
+      const train = await service.destroy(parseInt(req.params.categoryId));
+      res.json(train).end();
+    } catch (err: any) {
+      res
+        .status(err.status || 500)
+        .json(err)
+        .end();
+    }
+  });
+
 };
