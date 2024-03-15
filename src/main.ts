@@ -1,4 +1,3 @@
-import "./conf";
 import express from "express";
 import controllers from "./controllers";
 import cors from "cors";

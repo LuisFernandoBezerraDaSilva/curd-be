@@ -18,5 +18,5 @@ export interface ScheduledJob {
   }));
   
   export default () =>
-    jobs.forEach((job) => setInterval(job.job, job.frequency * 1e3));
+    jobs.forEach((job) => setInterval(() => job.job(), job.frequency * 1e3));
   

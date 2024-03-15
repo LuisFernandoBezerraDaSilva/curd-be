@@ -14,14 +14,17 @@ export default {
     return category;
   },
 
-  async create(params: Category) {
+  async create(params: any) {
+      console.log('aaaaaaaa')
+      console.log(params)
+      console.log('bbbbbbbb')
 
     try {
       const newOne = await prisma.category.create({
         data: {
-          codigo: params.codigo,
-          titulo: params.titulo,
-          descricao: params.descricao,
+          code: params.code,
+          title: params.title,
+          description: params.description,
         },
       });
 
@@ -32,9 +35,9 @@ export default {
     }
   },
 
-  async findByName(titulo: string) {
+  async findByName(title: string) {
     const category = await prisma.category.findFirst({
-      where: { titulo },
+      where: { title },
     });
 
     if (!category) {

@@ -1,9 +1,9 @@
 -- CreateTable
 CREATE TABLE "Category" (
     "id" SERIAL NOT NULL,
-    "codigo" TEXT NOT NULL,
-    "titulo" TEXT NOT NULL,
-    "descricao" TEXT,
+    "code" TEXT NOT NULL,
+    "title" TEXT NOT NULL,
+    "description" TEXT,
 
     CONSTRAINT "Category_pkey" PRIMARY KEY ("id")
 );

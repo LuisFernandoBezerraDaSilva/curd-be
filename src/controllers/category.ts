@@ -5,10 +5,9 @@ import { Category } from "@prisma/client";
 export default (app: Express) => {
   app.post("/category", async (req: Request, res: Response) => {
     try {
-      const newOne: { presence: Category } = { ...req.body };
-      await service.create({
-        ...newOne.presence,
-      });
+      const newOne: { params: Category } = { ...req.body };
+            
+      await service.create(newOne);
       res.status(200).end();
     } catch (err: any) {
       res
@@ -20,9 +19,9 @@ export default (app: Express) => {
 
   app.put("/category", async (req: Request, res: Response) => {
     try {
-      const newOne: { presence: Category } = { ...req.body };
+      const newOne: { params: Category } = { ...req.body };
       await service.update({
-        ...newOne.presence,
+        ...newOne.params,
       });
       res.status(200).end();
     } catch (err: any) {
