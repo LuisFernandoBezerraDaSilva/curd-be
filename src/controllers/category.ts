@@ -20,9 +20,7 @@ export default (app: Express) => {
   app.put("/category", async (req: Request, res: Response) => {
     try {
       const newOne: { params: Category } = { ...req.body };
-      await service.update({
-        ...newOne.params,
-      });
+      await service.update(newOne);
       res.status(200).end();
     } catch (err: any) {
       res
@@ -32,7 +30,7 @@ export default (app: Express) => {
     }
   });
 
-  app.get("/category", async (req: Request, res: Response) => {
+  app.get("/category", async (_req: Request, res: Response) => {
     try {
       const presence = await service.findAll();
       res.json(presence).end();
@@ -42,7 +40,7 @@ export default (app: Express) => {
         .json(err)
         .end();
     }
-  });
+});
 
   app.delete("/category/:categoryId", async (req: Request, res: Response) => {
     try {

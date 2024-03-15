@@ -1,4 +1,3 @@
-import { Category } from "@prisma/client";
 import prisma from "../repos/db";
 
 export default {
@@ -15,10 +14,6 @@ export default {
   },
 
   async create(params: any) {
-      console.log('aaaaaaaa')
-      console.log(params)
-      console.log('bbbbbbbb')
-
     try {
       const newOne = await prisma.category.create({
         data: {
@@ -47,7 +42,7 @@ export default {
     return category;
   },
 
-  async update(params: Category) {
+  async update(params: any) {
 
     await prisma.category.update({
       data: params,
